@@ -1,26 +1,18 @@
 import { Injectable } from '@angular/core';
 
-interface City {
-  name: string;
-  code: string;
-}
-
 @Injectable({
   providedIn: 'root'
 })
 export class CurrencyService {
-  private currency:  City;
+  private currency:  String;
   constructor() {
-    this.currency = {} as City;
+    this.currency = '';
   }
 
   getCurrency() : String{
-    return this.currency.code;
-  }
-  getStore() : City {
     return this.currency;
   }
-  setCurrency(c: City){
+  setCurrency(c: String){
      this.currency = c;
   }
 }
