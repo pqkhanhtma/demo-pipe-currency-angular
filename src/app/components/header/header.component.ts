@@ -15,18 +15,18 @@ export class HeaderComponent {
   private currencyService: CurrencyService;
   constructor(cS: CurrencyService, private route: ActivatedRoute){
     this.currencyService = cS;
-    if(localStorage.getItem('currency')){
-      this.selectedCurrency = localStorage.getItem('currency') ?? "";
-      this.currencyService.setCurrency(this.selectedCurrency);
-    }
+    // if(localStorage.getItem('currency')){
+    //   this.selectedCurrency = localStorage.getItem('currency') ?? "";
+    //   this.currencyService.setCurrency(this.selectedCurrency);
+    // }
     this.route.queryParams
       .subscribe(params => {
         if(params['currency']){
           this.setCurrency(params['currency']);
         }
         else{
-          if(localStorage.getItem('currency')){
-            this.setCurrency(localStorage.getItem('currency') ?? "");
+          if(localStorage.getItem('currency-conversation-data')){
+            this.setCurrency(JSON.parse(localStorage.getItem('currency-conversation-data') ?? "{}").currency ?? "USD");
           }
         }
       }
@@ -34,22 +34,25 @@ export class HeaderComponent {
   }
   currency: String[] | undefined;
 
-  selectedCurrency: String | undefined;
+  selectedCurrency: string | undefined;
 
-  setCurrency(c: String){
+  setCurrency(c: string){
     this.selectedCurrency = c;
+    console.log(c, 'string');
     this.currencyService.setCurrency(this.selectedCurrency);
   }
   ngOnInit() {
       this.currency = [
-        'VN',
+        'VND',
         'USD',
-        'EURO',
-        'RUB'
+        'EUR',
+        'INR',
+        'AUD',
       ];
   }
   onChange(e: SelectChangeEvent){
     this.currencyService.setCurrency(e.value)
-    localStorage.setItem('currency', e.value);
+    console.log(e.value, 'string');
+    // localStorage.setItem('currency', e.value);
   }
 }

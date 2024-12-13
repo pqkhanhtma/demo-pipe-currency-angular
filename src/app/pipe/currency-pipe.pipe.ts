@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class CurrencyPipePipe implements PipeTransform {
 
-  transform(value: any, currency: String): String {
+  transform(value: any, currency: string): string {
     switch (currency) {
       case 'VN':
         return `${value} đ`;

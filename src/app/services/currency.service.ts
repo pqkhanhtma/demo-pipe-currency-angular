@@ -4,15 +4,16 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CurrencyService {
-  private currency:  String;
+  private currency:  string;
   constructor() {
     this.currency = '';
   }
 
-  get getCurrency() : String{
+  get getCurrency() : string{
     return this.currency;
   }
-  setCurrency(c: String){
+  setCurrency(c: string){
+    console.log(c, 'string');
      this.currency = c;
   }
 }

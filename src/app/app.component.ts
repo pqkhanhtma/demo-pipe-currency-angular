@@ -7,11 +7,12 @@ import { MessageModule } from 'primeng/message';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import { ListItemsComponent } from './components/list-items/list-items.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, InputTextModule, ButtonModule, MessageModule, FormsModule, HeaderComponent, ListItemsComponent],
+  imports: [ HttpClientModule, CommonModule, RouterOutlet, InputTextModule, ButtonModule, MessageModule, FormsModule, HeaderComponent, ListItemsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
