@@ -50,7 +50,6 @@ export class HeaderComponent {
   }
   onChange(e: SelectChangeEvent){
     this.currencyService.setCurrency(e.value)
-    console.log(e);
     localStorage.setItem('currency', e.value);
   }
 }

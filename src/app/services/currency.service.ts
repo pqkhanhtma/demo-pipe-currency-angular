@@ -9,7 +9,7 @@ export class CurrencyService {
     this.currency = '';
   }
 
-  getCurrency() : String{
+  get getCurrency() : String{
     return this.currency;
   }
   setCurrency(c: String){
